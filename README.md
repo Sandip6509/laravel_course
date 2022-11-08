@@ -1,1 +1,1 @@
-"# laravel_course"
+echo "# laravel_course"
