@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\WelcomeEmail;
 use App\Models\Country;
 use App\Models\CrudOperation;
 use Illuminate\Http\Request;
@@ -44,7 +45,8 @@ class CrudOperationController extends Controller
         $request->profile->move(public_path('profiles/'), $imgName);
         $requestData['profile'] = $imgName;
         $requestData['country'] = $request->country_id;
-        CrudOperation::create($requestData);
+        $user = CrudOperation::create($requestData);
+        event(new WelcomeEmail($user));
         return redirect()->route('crud.index')->with('success', 'User Inserted Successfully.');;
     }
 
