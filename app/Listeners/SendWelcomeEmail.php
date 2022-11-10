@@ -31,14 +31,11 @@ class SendWelcomeEmail implements ShouldQueue
     {
         $user = $event->user;
         $emailData = [
-            'subject' => 'Welcome to LearnVern',
-            'body' => 'Welcome to LearnVern. This is the classic example of sending email using Laravel.',
+            'subject' => 'Welcome to Sam',
+            'body' => 'Welcome to Sam. This is the classic example of sending email using Laravel.',
             'tagline' => 'LEARN ANY COURSE FOR FREE IN YOUR OWN LANGUAGE UPDATED.'
         ];
         Mail::to((string) $user->email)
-            //->cc('cc_email@mail.com')
-            //->bcc('bcc_email@mail.com')
-            ->locale('en')
             ->send(new WelcomeEmail($emailData));
     }
 }

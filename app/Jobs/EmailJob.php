@@ -37,6 +37,6 @@ class EmailJob implements ShouldQueue
             'body' => 'Welcome to LearnVern. This is the classic example of sending email using Laravel.',
             'tagline' => 'LEARN ANY COURSE FOR FREE IN YOUR OWN LANGUAGE UPDATED.'
         ];
-        Mail::to($this->to_email)->send(new WelcomeEmail($emailData));
+        Mail::to($this->to_email)->locale('en')->send(new WelcomeEmail($emailData));
     }
 }

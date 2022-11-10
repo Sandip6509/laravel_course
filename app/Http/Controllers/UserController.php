@@ -363,7 +363,9 @@ class UserController extends Controller
     public function sendMail(Request $request)
     {
         $emailData = [
-            'body' => 'This is the classic example of sending email using Laravel.'
+            'subject' => 'Welcome to Sandip assasa',
+            'body' => 'Welcome to Sandeep. This is the classic example of sending email using Laravel.',
+            'tagline' => 'LEARN ANY COURSE FOR FREE IN YOUR OWN LANGUAGE UPDATED.'
         ];
         Mail::to('sandippatel3101@gmail.com')->send(new WelcomeEmail($emailData));
     }

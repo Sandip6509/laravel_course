@@ -32,6 +32,13 @@ class WelcomeEmail extends Mailable
                 ->from('sandippatel3101@gmail.com','Sandeep')
                 ->replyTo('sandippatel3101@gmail.com','Support sandeep')
                 ->subject('welcome to sandeep')
-                ->text('text_mail');
+                ->view('text_mail')
+                ->attach(public_path('demo.pdf'), [
+                    'as' => 'Demo PDF File.pdf',
+                    'mime' => 'application/pdf'
+                ])
+                ->attach(public_path('image.png'), [
+                    'as' => 'Demo Image.png'
+                ]);
     }
 }
