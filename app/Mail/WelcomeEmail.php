@@ -31,7 +31,6 @@ class WelcomeEmail extends Mailable
         return $this
                 ->from('sandippatel3101@gmail.com','Sandeep')
                 ->replyTo('sandippatel3101@gmail.com','Support sandeep')
-                ->subject('welcome to sandeep')
                 ->view('text_mail')
                 ->attach(public_path('demo.pdf'), [
                     'as' => 'Demo PDF File.pdf',

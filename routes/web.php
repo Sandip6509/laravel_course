@@ -177,3 +177,6 @@ Route::get('queue', function () {
 });
 
 Route::post('queue', [UserController::class, 'queue'])->name('queue');
+
+// execute Command
+Route::get('executeCommand',[UserController::class,'executeCommand']);

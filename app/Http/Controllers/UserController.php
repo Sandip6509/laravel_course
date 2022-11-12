@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\View;
@@ -378,5 +379,12 @@ class UserController extends Controller
             dispatch(new EmailJob($email));
         }
         return redirect()->to('queue')->with('success', 'Email processing started.');
+    }
+
+    public function executeCommand(Request $request)
+    {
+        $data = Artisan::call('send:ind_email',['user'=>'sandippatel3101@gmail.com','--opt' => 'testOpt']);
+
+        return $data;
     }
 }
